@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Countdown & Days Since App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Countdown & Days Since</h1>
+
+  <!-- Event Form -->
+  <div id="event-form">
+    <input type="text" id="event-name" placeholder="Event Name" required>
+
+    <div id="event-type-selection">
+      <input type="radio" id="single-day" name="event-type" value="single" checked>
+      <label for="single-day">Enter 1-Day Event</label>
+      <input type="radio" id="multiple-day" name="event-type" value="multiple">
+      <label for="multiple-day">Enter Multiple Day Event</label>
+    </div>
+
+    <!-- Single Day Input -->
+    <div id="single-date-container">
+      <label for="single-date">Date:</label>
+      <input type="date" id="single-date">
+    </div>
+
+    <!-- Multiple Day Inputs -->
+    <div id="multiple-date-container" style="display: none;">
+      <label for="start-date">Start Date:</label>
+      <input type="date" id="start-date">
+      <label for="end-date">End Date:</label>
+      <input type="date" id="end-date">
+    </div>
+
+    <label for="text-colour">Text Colour:</label>
+    <input type="color" id="text-colour" value="#000000">
+
+    <label for="bg-colour">Background Colour:</label>
+    <input type="color" id="bg-colour" value="#ffffff">
+
+    <button id="add-event">Add Event</button>
+  </div>
+
+  <!-- Event List -->
+  <div id="events-list">
+    <h2>Events</h2>
+    <ul id="event-items">
+      <!-- Dynamically added event items -->
+    </ul>
+  </div>
+
+  <!-- Placeholder Settings Button -->
+  <button id="settings-btn">Settings</button>
+
+  <script src="renderer.js"></script>
+</body>
+
+</html>

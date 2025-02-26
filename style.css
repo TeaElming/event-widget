@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f4f4f4;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+#event-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#event-form input,
+#event-form label,
+#event-form button {
+  font-size: 1rem;
+  padding: 5px;
+}
+
+#events-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#event-items li {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
