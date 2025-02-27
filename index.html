@@ -11,9 +11,14 @@
 </head>
 
 <body>
+  <!-- Toggle Button -->
+  <button id="toggle-events-btn" class="toggle-button">View Events</button>
+
   <!-- Placeholder Settings Button -->
-  <button id="settings-btn">Settings</button>
-  
+  <button id="settings-btn" style="position: absolute; top: 0; right: 0;">
+    Settings
+  </button>
+
   <h1>Countdown & Days Since</h1>
 
   <!-- Event Form -->
@@ -63,9 +68,12 @@
   <!-- Calendar Container -->
   <div id="calendar-container"></div>
 
-  <script type="module" src="renderer.js"></script>
+  <script type="module" src="./renderer.js"></script>
+  <script type="module" src="./components/js/calendar.js"></script>
+  <script type="module" src="./components/js/events.js"></script>
+  <script type="module" src="./components/js/eventsList.js"></script>
 
-  <script type="module" src="calendar.js"></script>
+
 </body>
 
 </html>

@@ -26,7 +26,8 @@
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 2px; /* small gap between cells */
+  gap: 2px;
+  /* small gap between cells */
 }
 
 /* Headers for days of the week (Mon, Tue, etc.) */
@@ -54,7 +55,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer; /* if you want a pointer on hover */
+  cursor: pointer;
+  /* if you want a pointer on hover */
 }
 
 .calendar-day:hover {
