@@ -5,12 +5,13 @@
   <meta charset="UTF-8">
   <title>Countdown & Days Since App</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="./components//css//calendar.css">
+  <link rel="stylesheet" href="./components/css/calendar.css">
   <link rel="stylesheet" href="./components/css/eventList.css">
-
+  <link rel="stylesheet" href="./components/css/addEvent.css">
 </head>
 
 <body>
+
   <!-- Toggle Button -->
   <button id="toggle-events-btn" class="toggle-button">View Events</button>
 
@@ -21,38 +22,49 @@
 
   <h1>Countdown & Days Since</h1>
 
-  <!-- Event Form -->
-  <div id="event-form">
-    <input type="text" id="event-name" placeholder="Event Name" required>
+  <!-- Button to Open the Event Form Modal -->
+  <button id="open-event-form-btn">+ Add Event</button>
 
-    <div id="event-type-selection">
-      <input type="radio" id="single-day" name="event-type" value="single" checked>
-      <label for="single-day">Enter 1-Day Event</label>
-      <input type="radio" id="multiple-day" name="event-type" value="multiple">
-      <label for="multiple-day">Enter Multiple Day Event</label>
+  <!-- Event Form Modal -->
+  <div id="event-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="close-event-form-btn">&times;</span>
+
+      <h2>Add New Event</h2>
+
+      <div id="event-form">
+        <input type="text" id="event-name" placeholder="Event Name" required>
+
+        <div id="event-type-selection">
+          <input type="radio" id="single-day" name="event-type" value="single" checked>
+          <label for="single-day">Enter 1-Day Event</label>
+          <input type="radio" id="multiple-day" name="event-type" value="multiple">
+          <label for="multiple-day">Enter Multiple Day Event</label>
+        </div>
+
+        <!-- Single Day Input -->
+        <div id="single-date-container">
+          <label for="single-date">Date:</label>
+          <input type="date" id="single-date">
+        </div>
+
+        <!-- Multiple Day Inputs -->
+        <div id="multiple-date-container" style="display: none;">
+          <label for="start-date">Start Date:</label>
+          <input type="date" id="start-date">
+          <label for="end-date">End Date:</label>
+          <input type="date" id="end-date">
+        </div>
+
+        <label for="text-colour">Text Colour:</label>
+        <input type="color" id="text-colour" value="#000000">
+
+        <label for="bg-colour">Background Colour:</label>
+        <input type="color" id="bg-colour" value="#ffffff">
+
+        <button id="add-event">Add Event</button>
+      </div>
     </div>
-
-    <!-- Single Day Input -->
-    <div id="single-date-container">
-      <label for="single-date">Date:</label>
-      <input type="date" id="single-date">
-    </div>
-
-    <!-- Multiple Day Inputs -->
-    <div id="multiple-date-container" style="display: none;">
-      <label for="start-date">Start Date:</label>
-      <input type="date" id="start-date">
-      <label for="end-date">End Date:</label>
-      <input type="date" id="end-date">
-    </div>
-
-    <label for="text-colour">Text Colour:</label>
-    <input type="color" id="text-colour" value="#000000">
-
-    <label for="bg-colour">Background Colour:</label>
-    <input type="color" id="bg-colour" value="#ffffff">
-
-    <button id="add-event">Add Event</button>
   </div>
 
   <!-- Event List -->
@@ -63,17 +75,10 @@
     </ul>
   </div>
 
-
-
   <!-- Calendar Container -->
   <div id="calendar-container"></div>
 
   <script type="module" src="./renderer.js"></script>
-  <script type="module" src="./components/js/calendar.js"></script>
-  <script type="module" src="./components/js/events.js"></script>
-  <script type="module" src="./components/js/eventsList.js"></script>
-
-
 </body>
 
 </html>
