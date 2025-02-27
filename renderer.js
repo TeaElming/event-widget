@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	const eventModal = document.getElementById("event-modal")
 	const openEventFormBtn = document.getElementById("open-event-form-btn")
 	const closeEventFormBtn = document.getElementById("close-event-form-btn")
+	const toggleEventsBtn = document.getElementById("toggle-events-btn") // Missing!
+	const eventsListEl = document.getElementById("events-list") // Missing!
 
 	// Initialize the Calendar
 	const myCalendar = new Calendar("calendar-container")
@@ -51,6 +53,24 @@ document.addEventListener("DOMContentLoaded", () => {
 	window.addEventListener("click", (event) => {
 		if (event.target === eventModal) {
 			eventModal.classList.remove("show")
+		}
+	})
+
+	// FIX: Add back the "View Events" button toggle logic
+	toggleEventsBtn.addEventListener("click", () => {
+		eventsListEl.classList.toggle("open") // Slides in/out the event list
+	})
+
+	// Close the event list when clicking on an event or outside
+	eventItemsList.addEventListener("click", () => {
+		eventsListEl.classList.remove("open")
+	})
+
+	document.addEventListener("click", (e) => {
+		const clickInsideList = eventsListEl.contains(e.target)
+		const clickToggleBtn = toggleEventsBtn.contains(e.target)
+		if (!clickInsideList && !clickToggleBtn) {
+			eventsListEl.classList.remove("open")
 		}
 	})
 
