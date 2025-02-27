@@ -1,8 +1,14 @@
+html,
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  background-color: #f4f4f4;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-direction: column; /* Stack items vertically */
+  text-align: center;
 }
+
 
 h1,
 h2 {
@@ -30,3 +36,8 @@ h2 {
   min-height: 200px;
 }
 
+.top-buttons button {
+  border-radius: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
