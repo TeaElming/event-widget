@@ -5,9 +5,15 @@
   <meta charset="UTF-8">
   <title>Countdown & Days Since App</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./components//css//calendar.css">
+  <link rel="stylesheet" href="./components/css/eventList.css">
+
 </head>
 
 <body>
+  <!-- Placeholder Settings Button -->
+  <button id="settings-btn">Settings</button>
+  
   <h1>Countdown & Days Since</h1>
 
   <!-- Event Form -->
@@ -52,10 +58,14 @@
     </ul>
   </div>
 
-  <!-- Placeholder Settings Button -->
-  <button id="settings-btn">Settings</button>
 
-  <script src="renderer.js"></script>
+
+  <!-- Calendar Container -->
+  <div id="calendar-container"></div>
+
+  <script type="module" src="renderer.js"></script>
+
+  <script type="module" src="calendar.js"></script>
 </body>
 
 </html>

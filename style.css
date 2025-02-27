@@ -37,3 +37,8 @@ h1, h2 {
   justify-content: space-between;
   align-items: center;
 }
+
+#calendar-container {
+  border: 1px solid #ccc;
+  min-height: 200px;
+}

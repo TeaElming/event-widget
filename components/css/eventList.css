@@ -1,0 +1,6 @@
+#events-list {
+  position: fixed;
+  left: 0;
+  top: 0; /* or wherever you want it vertically */
+  background-color: rgba(163, 255, 211, 0.599);
+}

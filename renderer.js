@@ -1,5 +1,7 @@
 /** @format */
 
+import Calendar from "./components/js/calendar.js"
+
 document.addEventListener("DOMContentLoaded", () => {
 	const eventNameInput = document.getElementById("event-name")
 	const singleDateInput = document.getElementById("single-date")
@@ -14,6 +16,19 @@ document.addEventListener("DOMContentLoaded", () => {
 		"multiple-date-container"
 	)
 	const eventTypeRadios = document.getElementsByName("event-type")
+	const myCalendar = new Calendar("calendar-container")
+  console.log("Triggered")
+	myCalendar.render()
+
+	//  CALENDAR STYLING
+	const today = new Date()
+	const yyyy = today.getFullYear()
+	const mm = String(today.getMonth() + 1).padStart(2, "0")
+	const dd = String(today.getDate()).padStart(2, "0")
+	const todayStr = `${yyyy}-${mm}-${dd}`
+
+	myCalendar.setDateStyle(todayStr, { backgroundColor: "lightgreen" })
+	// END OF CALENDAR STYLING
 
 	// Toggle date input containers based on selected event type
 	eventTypeRadios.forEach((radio) => {
