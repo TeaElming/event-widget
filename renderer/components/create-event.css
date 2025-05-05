@@ -1,0 +1,72 @@
+form {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+form input,
+textarea {
+  flex: 1 1 140px;
+  padding: 0.5rem;
+}
+textarea {
+  flex-basis: 100%;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+.emoji-picker {
+  margin-top: 0.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.emoji-picker {
+  margin: 0.6rem 0;
+}
+
+.emoji-options {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-top: 0.4rem;
+}
+
+.emoji-options button {
+  font-size: 1.4rem;
+  padding: 0.3rem;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.emoji-options button.selected {
+  outline: 2px solid dodgerblue;
+  background: #eaf4ff;
+}
+
+.color-file-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 0.8rem 0;
+}
+
+.color-label input[type='color'] {
+  width: 40px;
+  height: 34px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.file-label input[type='file'] {
+  font-size: 0.9rem;
+}

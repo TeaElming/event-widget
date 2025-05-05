@@ -1,0 +1,45 @@
+li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.8rem;
+  border-radius: 0.6rem;
+  position: relative;
+}
+
+.meta {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  margin-left: 0.3rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.edit-form {
+  display: none;
+  margin-top: 0.6rem;
+  padding: 0.6rem;
+  background: #f9f9f9;
+  border-radius: 0.4rem;
+  border: 1px solid #ccc;
+  gap: 0.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+.edit-form input,
+.edit-form select {
+  padding: 0.3rem;
+}
+
+.btns {
+  display: flex;
+  gap: 0.4rem;
+}

@@ -1,0 +1,17 @@
+header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.2rem;
+  margin-top: 0.4rem;
+}

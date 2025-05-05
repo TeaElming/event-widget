@@ -1,0 +1,14 @@
+:host {
+  --gap: 1.2rem;
+  display: grid;
+  gap: var(--gap);
+  padding: var(--gap);
+  font-family: system-ui, sans-serif;
+}
+create-event,
+list-view,
+calendar-view {
+  border: 1px solid #ddd;
+  border-radius: 0.8rem;
+  padding: 1rem;
+}
