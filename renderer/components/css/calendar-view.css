@@ -1,17 +1,32 @@
+:host {
+  /* occupy all height given by the parent flex-box */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ── header/nav row ─────────────────────────────── */
 header {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   gap: 0.6rem;
 }
+
 button {
   background: none;
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
 }
+
+/* ── full-height grid ───────────────────────────── */
 .grid {
+  flex: 1 1 0;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
   gap: 0.2rem;
   margin-top: 0.4rem;
+
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
 }

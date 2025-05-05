@@ -1,13 +1,26 @@
 .cell {
-  aspect-ratio: 1;
-  border: 1px solid #ddd;
-  border-radius: 0.4rem;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border: 1px solid #ddd;
+  border-radius: 0.4rem;
   cursor: pointer;
 }
+
+.fade {
+  opacity: 0.4;
+}
+.day {
+  font-weight: bold;
+}
+.emoji {
+  font-size: 1.2rem;
+  margin-top: 0.1rem;
+}
+
 .fade {
   opacity: 0.4;
 }

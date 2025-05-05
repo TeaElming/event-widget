@@ -14,8 +14,8 @@ export function eventDuration(ev) {
 }
 
 export function isPast(date) {
-  return daysBetween(date, new Date()) < 0
+  return daysBetween(date, new Date()) > 0
 }
 export function isFuture(date) {
-  return daysBetween(new Date(), date) < 0
+  return daysBetween(date, new Date()) < 0
 }

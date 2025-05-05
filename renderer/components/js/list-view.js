@@ -2,7 +2,7 @@ import './list-item.js'
 import './filters-bar.js'
 
 import { loadEvents, saveEvents } from '../../datastore.js'
-import { daysBetween, isPast } from '../../date-utils.js'
+import { daysBetween, isPast, isFuture } from '../../date-utils.js'
 
 class ListView extends HTMLElement {
   static get observedAttributes() {
@@ -18,16 +18,14 @@ class ListView extends HTMLElement {
     this.render()
   }
 
+  /* delegated events from children */
   handleEvent(e) {
     if (e.type === 'delete-event') {
       const id = e.detail
       const events = loadEvents().filter((ev) => ev.id !== id)
       saveEvents(events)
       this.dispatchEvent(
-        new CustomEvent('events-changed', {
-          bubbles: true,
-          detail: events
-        })
+        new CustomEvent('events-changed', { bubbles: true, detail: events })
       )
     }
 
@@ -38,10 +36,7 @@ class ListView extends HTMLElement {
       )
       saveEvents(events)
       this.dispatchEvent(
-        new CustomEvent('events-changed', {
-          bubbles: true,
-          detail: events
-        })
+        new CustomEvent('events-changed', { bubbles: true, detail: events })
       )
     }
 
@@ -60,20 +55,17 @@ class ListView extends HTMLElement {
       range: null
     }
 
+    /* ---------------- filter ---------------- */
     let list = [...all]
 
-    const today = new Date()
+    if (f.when === 'future')
+      list = list.filter((ev) => isFuture(new Date(ev.start)))
 
-    // --- Filter ---
-    if (f.when === 'future') {
-      list = list.filter((ev) => !isPast(new Date(ev.start)))
-    }
-    if (f.when === 'past') {
+    if (f.when === 'past')
       list = list.filter((ev) => {
         const end = ev.end ? new Date(ev.end) : new Date(ev.start)
         return isPast(end)
       })
-    }
 
     if (f.search) {
       const q = f.search.toLowerCase()
@@ -89,35 +81,35 @@ class ListView extends HTMLElement {
       })
     }
 
-    // --- Sort ---
-    if (f.sort === 'name') {
-      list.sort((a, b) => a.name.localeCompare(b.name))
-    }
-    if (f.sort === 'next') {
+    /* ---------------- sort ---------------- */
+    const today = new Date()
+    if (f.sort === 'name') list.sort((a, b) => a.name.localeCompare(b.name))
+    if (f.sort === 'next')
       list.sort(
         (a, b) =>
           daysBetween(today, new Date(a.start)) -
           daysBetween(today, new Date(b.start))
       )
-    }
 
-    // --- HTML ---
+    /* ---------------- DOM ---------------- */
     this.shadowRoot.innerHTML = `
       <link rel="stylesheet" href="renderer/components/css/list-view.css">
       <filters-bar></filters-bar>
-      <ul class="evt"></ul>`
+      <ul class="evt"></ul>
+    `
 
+    /* restore filter UI */
+    const fb = this.shadowRoot.querySelector('filters-bar')
+    fb.setValues(f)
+    fb.addEventListener('filters-changed', this)
+
+    /* list items */
     const ul = this.shadowRoot.querySelector('.evt')
     list.forEach((ev) => {
       const li = document.createElement('list-item')
       li.setAttribute('event', JSON.stringify(ev))
       ul.appendChild(li)
     })
-
-    this.shadowRoot
-      .querySelector('filters-bar')
-      .addEventListener('filters-changed', this)
-
     ul.addEventListener('delete-event', this)
     ul.addEventListener('update-event', this)
   }

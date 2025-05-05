@@ -1,22 +1,21 @@
+/* ROOT LAYOUT ────────────────────────────────────────── */
 :host {
   --gap: 1.2rem;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* full window height */
   gap: var(--gap);
   padding: var(--gap);
+  box-sizing: border-box;
   font-family: system-ui, sans-serif;
 }
-create-event,
-list-view,
-calendar-view {
-  border: 1px solid #ddd;
-  border-radius: 0.8rem;
-  padding: 1rem;
-}
+
+/* TOP BAR (view-switch + add button) ─────────────────── */
 .topbar {
+  flex: 0 0 auto; /* fixed height */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.6rem;
 }
 
 .views button,
@@ -37,4 +36,23 @@ calendar-view {
 .add-btn {
   font-size: 1.4rem;
   line-height: 1;
+}
+
+/* CREATE FORM (drops in below top-bar) ───────────────── */
+create-event {
+  flex: 0 0 auto; /* natural height when visible */
+  border: 1px solid #ddd;
+  border-radius: 0.8rem;
+  padding: 1rem;
+}
+
+/* MAIN VIEW AREA – grows to fill the rest ────────────── */
+list-view,
+calendar-view {
+  flex: 1 1 0; /* take remaining space */
+  min-height: 0; /* allow flex shrink */
+  border: 1px solid #ddd;
+  border-radius: 0.8rem;
+  padding: 1rem;
+  overflow: hidden; /* prevent scroll bleed */
 }
