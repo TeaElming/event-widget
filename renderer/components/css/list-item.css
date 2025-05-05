@@ -1,80 +1,84 @@
 /* ──────────────────────────────────────────────
    OUTER CARD
    ──────────────────────────────────────────── */
-   li {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    padding: 0.8rem;
-    border-radius: 0.6rem;
-    position: relative;
+li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.8rem;
+  border-radius: 0.6rem;
+  position: relative;
 
-    /* fallbacks, overridden inline */
-    background: var(--bg, #fff);
-    color: var(--fg, #000);
-  }
+  /* fallbacks, overridden inline */
+  background: var(--bg, #fff);
+  color: var(--fg, #000);
+}
 
-  .meta {
-    font-size: 0.9rem;
-    opacity: 0.8;
-  }
+.meta {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
 
-  /* ──────────────────────────────────────────────
+/* ──────────────────────────────────────────────
      HEADER ACTIONS  (✎  ✕)
      ──────────────────────────────────────────── */
-  button.edit,
-  button.del {
-    position: absolute;
-    top: 0.5rem;
-    background: none;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-  }
+button.edit,
+button.del {
+  position: absolute;
+  top: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
 
-  button.edit { right: 2.2rem; }   /* left of the X   */
-  button.del  { right: 0.5rem; }
+button.edit {
+  right: 2.2rem;
+} /* left of the X   */
+button.del {
+  right: 0.5rem;
+}
 
-  /* ──────────────────────────────────────────────
+/* ──────────────────────────────────────────────
      EDIT FORM
      ──────────────────────────────────────────── */
-  .edit-form {
-    margin-top: 0.6rem;
-    padding: 0.6rem;
-    background: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 0.4rem;
+.edit-form {
+  margin-top: 0.6rem;
+  padding: 0.6rem;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
 
-    display: grid;
-    gap: 0.4rem;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    align-items: end;
-  }
+  display: grid;
+  gap: 0.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  align-items: end;
+}
 
-  .edit-form input,
-  .edit-form select {
-    padding: 0.3rem;
-  }
+.edit-form input,
+.edit-form select {
+  padding: 0.3rem;
+}
 
-  /* single colour swatch */
-  .color-swatch input[type='color'] {
-    width: 100%;
-    height: 2rem;
-    padding: 0;
-    border: none;
-    background: none;
-    cursor: pointer;
-  }
+/* single colour swatch */
+.color-swatch input[type='color'] {
+  width: 100%;
+  height: 2rem;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
 
-  /* button row */
-  .btns {
-    grid-column: 1 / -1; /* full-width row at the bottom */
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.4rem;
-  }
+/* button row */
+.btns {
+  grid-column: 1 / -1; /* full-width row at the bottom */
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.4rem;
+}
 
-  /* Save / Cancel inherit default static positioning */
-  .btns button {
-    position: static;
-  }
+/* Save / Cancel inherit default static positioning */
+.btns button {
+  position: static;
+}
