@@ -1,6 +1,6 @@
-import './components/create-event.js'
-import './components/list-view.js'
-import './components/calendar-view.js'
+import './components/js/create-event.js'
+import './components/js/list-view.js'
+import './components/js/calendar-view.js'
 import { loadEvents, saveEvents } from './datastore.js'
 
 class CountdownWidget extends HTMLElement {

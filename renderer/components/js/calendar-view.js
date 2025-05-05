@@ -1,6 +1,6 @@
 import './day-cell.js'
 import './event-popup.js'
-import { inRange } from '../date-utils.js'
+import { inRange } from '../../date-utils.js'
 
 class CalendarView extends HTMLElement {
   static get observedAttributes() {
@@ -54,7 +54,7 @@ class CalendarView extends HTMLElement {
     }
 
     this.shadowRoot.innerHTML = `
-      <link rel="stylesheet" href="renderer/components/calendar-view.css">
+      <link rel="stylesheet" href="renderer/components/css/calendar-view.css">
       <header>
         <button id="prev">‹</button>
         <h3>${this.current.toLocaleString('default', { month: 'long', year: 'numeric' })}</h3>

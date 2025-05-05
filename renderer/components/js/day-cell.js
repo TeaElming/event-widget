@@ -19,7 +19,7 @@ class DayCell extends HTMLElement {
           ? '📌'
           : ''
     this.shadowRoot.innerHTML = `
-      <link rel="stylesheet" href="renderer/components/day-cell.css">
+      <link rel="stylesheet" href="renderer/components/css/day-cell.css">
       <div class="cell ${d.getMonth() === new Date().getMonth() ? '' : 'fade'}">
         <span class="day">${d.getDate()}</span>
         <span class="emoji">${emoji}</span>

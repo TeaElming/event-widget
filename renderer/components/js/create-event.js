@@ -1,11 +1,11 @@
-import { generateId, loadEvents, saveEvents } from '../datastore.js'
+import { generateId, loadEvents, saveEvents } from '../../datastore.js'
 
 class CreateEvent extends HTMLElement {
   connectedCallback() {
     this.selectedEmoji = '📅' // Default emoji
 
     this.attachShadow({ mode: 'open' }).innerHTML = /*html*/ `
-      <link rel="stylesheet" href="renderer/components/create-event.css">
+      <link rel="stylesheet" href="renderer/components/css/create-event.css">
       <form id="frm">
         <input required name="name" placeholder="Event name" />
         <input required name="start" type="date" />
@@ -26,13 +26,9 @@ class CreateEvent extends HTMLElement {
 
         <textarea name="desc" rows="2" placeholder="Description (optional)"></textarea>
 
-        <div class="color-file-row">
+        <div class="color-row">
           <label class="color-label" title="Background colour">
             <input type="color" name="bgColour" />
-          </label>
-
-          <label class="file-label">
-            <input type="file" name="bgImage" accept="image/*" />
           </label>
         </div>
 
@@ -56,7 +52,7 @@ class CreateEvent extends HTMLElement {
       .forEach((btn) => btn.classList.toggle('selected', btn === button))
   }
 
-  async add(e) {
+  add(e) {
     e.preventDefault()
     const formEl = e.target
     const f = Object.fromEntries(new FormData(formEl))
@@ -69,27 +65,14 @@ class CreateEvent extends HTMLElement {
       return
     }
 
-    const fileInput = formEl.querySelector('input[name="bgImage"]')
-    const file = fileInput.files[0]
-
-    let bgImage = null
-    if (file) {
-      bgImage = await this.convertToBase64(file)
-    }
-
     const event = {
       id: generateId(),
       name: f.name.trim(),
       emoji: this.selectedEmoji,
       desc: f.desc || '',
       start: start.toISOString(),
-      end: end ? end.toISOString() : null
-    }
-
-    if (bgImage) {
-      event.bgImage = bgImage
-    } else if (f.bgColour) {
-      event.bgColour = f.bgColour
+      end: end ? end.toISOString() : null,
+      bgColour: f.bgColour || '#ffffff'
     }
 
     const events = loadEvents()
@@ -108,15 +91,6 @@ class CreateEvent extends HTMLElement {
     this.shadowRoot
       .querySelectorAll('.emoji-options button')
       .forEach((btn) => btn.classList.remove('selected'))
-  }
-
-  convertToBase64(file) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader()
-      reader.onerror = reject
-      reader.onload = () => resolve(reader.result)
-      reader.readAsDataURL(file)
-    })
   }
 }
 

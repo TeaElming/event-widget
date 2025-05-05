@@ -1,7 +1,7 @@
 class FiltersBar extends HTMLElement {
   connectedCallback() {
     this.attachShadow({ mode: 'open' }).innerHTML = `
-      <link rel="stylesheet" href="renderer/components/filters-bar.css">
+      <link rel="stylesheet" href="renderer/components/css/filters-bar.css">
       <div class="bar">
         <select id="sort">
           <option value="added">Recently added</option>

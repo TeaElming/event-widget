@@ -1,4 +1,4 @@
-import { daysBetween, eventDuration } from '../date-utils.js'
+import { daysBetween } from '../../date-utils.js'
 
 class ListItem extends HTMLElement {
   static get observedAttributes() {
@@ -29,7 +29,7 @@ class ListItem extends HTMLElement {
     else if (now > end) rel = `${daysBetween(end, now)} days since`
 
     this.shadowRoot.innerHTML = /*html*/ `
-      <link rel="stylesheet" href="renderer/components/list-item.css">
+      <link rel="stylesheet" href="renderer/components/css/list-item.css">
       <li style="background:${ev.bgColour || '#fff'}; color:${ev.textColour || '#000'}">
         <strong class="nm">${ev.emoji || '📅'} ${ev.name}</strong>
         <span class="meta">${dateLabel} • ${rel}</span>

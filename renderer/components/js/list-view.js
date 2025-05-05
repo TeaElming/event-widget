@@ -1,8 +1,8 @@
 import './list-item.js'
 import './filters-bar.js'
 
-import { loadEvents, saveEvents } from '../datastore.js'
-import { daysBetween, isPast } from '../date-utils.js'
+import { loadEvents, saveEvents } from '../../datastore.js'
+import { daysBetween, isPast } from '../../date-utils.js'
 
 class ListView extends HTMLElement {
   static get observedAttributes() {
@@ -103,7 +103,7 @@ class ListView extends HTMLElement {
 
     // --- HTML ---
     this.shadowRoot.innerHTML = `
-      <link rel="stylesheet" href="renderer/components/list-view.css">
+      <link rel="stylesheet" href="renderer/components/css/list-view.css">
       <filters-bar></filters-bar>
       <ul class="evt"></ul>`
 

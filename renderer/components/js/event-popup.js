@@ -1,7 +1,7 @@
 class EventPopup extends HTMLElement {
   connectedCallback() {
     this.attachShadow({ mode: 'open' }).innerHTML = `
-      <link rel="stylesheet" href="renderer/components/event-popup.css">
+      <link rel="stylesheet" href="renderer/components/css/event-popup.css">
       <dialog id="dlg">
         <h3>Events</h3>
         <ul></ul>
