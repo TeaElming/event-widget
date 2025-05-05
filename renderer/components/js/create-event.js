@@ -28,7 +28,7 @@ class CreateEvent extends HTMLElement {
 
         <div class="color-row">
           <label class="color-label" title="Background colour">
-            <input type="color" name="bgColour" />
+            <input type="color" name="bgColour" value="#2596be" />
           </label>
         </div>
 
@@ -72,7 +72,7 @@ class CreateEvent extends HTMLElement {
       desc: f.desc || '',
       start: start.toISOString(),
       end: end ? end.toISOString() : null,
-      bgColour: f.bgColour || '#ffffff'
+      bgColour: f.bgColour || '#2596be'
     }
 
     const events = loadEvents()

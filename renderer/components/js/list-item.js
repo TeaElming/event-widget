@@ -29,26 +29,28 @@ class ListItem extends HTMLElement {
     else if (now > end) rel = `${daysBetween(end, now)} days since`
 
     this.shadowRoot.innerHTML = /*html*/ `
-      <link rel="stylesheet" href="renderer/components/css/list-item.css">
-      <li style="background:${ev.bgColour || '#fff'}; color:${ev.textColour || '#000'}">
-        <strong class="nm">${ev.emoji || '📅'} ${ev.name}</strong>
-        <span class="meta">${dateLabel} • ${rel}</span>
-        <button class="edit">✎</button>
-        <button class="del">✕</button>
-      </li>
+        <link rel="stylesheet" href="renderer/components/css/list-item.css">
+        <li style="background:${ev.bgColour || '#fff'}; color:${ev.textColour || '#000'}">
+          <strong class="nm">${ev.emoji || '📅'} ${ev.name}</strong>
+          <span class="meta">${dateLabel} • ${rel}</span>
+          <button class="edit">✎</button>
+          <button class="del">✕</button>
 
-      <form class="edit-form">
-        <input name="name" value="${ev.name}" />
-        <input name="start" type="date" value="${ev.start.slice(0, 10)}" />
-        <input name="end" type="date" value="${ev.end ? ev.end.slice(0, 10) : ''}" />
-        <input name="emoji" maxlength="2" value="${ev.emoji || ''}" />
-        <input name="textColour" type="color" value="${ev.textColour || '#000000'}" />
-        <input name="bgColour" type="color" value="${ev.bgColour || '#ffffff'}" />
-        <div class="btns">
-          <button class="save">Save</button>
-          <button type="button" class="cancel">Cancel</button>
-        </div>
-      </form>
+          <form class="edit-form">
+            <input name="name" value="${ev.name}" />
+            <input name="start" type="date" value="${ev.start.slice(0, 10)}" />
+            <input name="end" type="date" value="${ev.end ? ev.end.slice(0, 10) : ''}" />
+            <input name="emoji" maxlength="2" value="${ev.emoji || ''}" />
+            <label class="color-swatch">
+              <input name="bgColour" type="color" value="${ev.bgColour || '#ffffff'}" />
+            </label>
+            <div class="btns">
+              <button type="submit" class="save">Save</button>
+              <button type="button" class="cancel">Cancel</button>
+            </div>
+          </form>
+
+        </li>
     `
 
     const form = this.shadowRoot.querySelector('.edit-form')

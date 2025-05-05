@@ -71,7 +71,7 @@ form label {
   font-size: 0.9rem;
 }
 
-.color-label input[type="color"] {
+.color-label input[type='color'] {
   width: 40px;
   height: 34px;
   padding: 0;
